@@ -7,6 +7,10 @@
     <title>Form</title>
 </head>
 <body>
+    <button id = "cambio-color">
+        <img src="imgs/dark_mode_24dp_1F1F1F_FILL1_wght400_GRAD0_opsz24.svg" alt="darkmode">
+        <img src="imgs/light_mode_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg" alt="lightmode">
+    </button>
     <form method="post" onsubmit="return validarForm()">
                 <div>
                     <label for="Nombre">Ingrese su nombre</label>
@@ -20,15 +24,21 @@
                 </div>    
             <div>
                 <label for="Contraseña">Contraseña:</label>
+                <div class="input-box">
                 <input type="password" id="Contraseña" onfocus="mostrarMensajesContraseña()" onblur="esconderMensajesContraseña()"  onkeyup="confirmarContraseña()" />
+                <img src="imgs/eye-close.png" alt="ojo cerrado" id="eyeicon1">
+            </div>
                     <span class="mensaje" id="mensajeA">La contraseña debe contener al menos 8 caracteres</span><br>
                         <span class="mensaje" id="mensajeB">La contraseña debe contener al menos una mayúscula</span><br>
                         <span class="mensaje" id="mensajeC">La contraseña debe contener al menos un número</span>
             </div>
           <div>
             <label for="ConfirmarContraseña">Confirme su contraseña</label>
+            <div class="input-box">
             <input type="password" id="ConfirmarContraseña" onfocus="mostrarMensaje('mensajeD')" onblur="esconderMensaje('mensajeD')"  onkeyup="confirmar2daContraseña()" >
-                <span class="mensaje" id="mensajeD">Las contraseñas deben coincidir</span><br>
+            <img src="imgs/eye-close.png" alt="ojo cerrado" id="eyeicon">
+            </div>
+            <span class="mensaje" id="mensajeD">Las contraseñas deben coincidir</span><br>
             </div>
           <div>
             <button type="submit"> 
@@ -36,7 +46,11 @@
             </button>
           </div>
         </form>
-    
+        <button id="mostrarUsuariosBtn">Mostrar usuarios registrados</button>
+        <div id="userList" style="display:none;">
+            <h2>Usuarios Registrados:</h2>
+            <ul id="userListDisplay"></ul>
+        </div>
 <script src="script.js"></script>
 </body>
 </html>

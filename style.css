@@ -2,13 +2,97 @@
     --bcgr-input: #fff5e1;
     --text-color: #333;
     --bcgr-color: linear-gradient(135deg, #ffd6a5, #ff9b85);
+    --bcgr-button: linear-gradient(135deg, #e07a5f, #c94c4c);
+    --hover: linear-gradient(135deg, #f4a261, #e07a5f);
     --box-shadow-form: 0 4px 10px rgba(0, 0, 0, 0.15);
     --border-form: 1px solid #e0a96d;
     --border-input: 2px solid #e07a5f;
+    --border-inpfocus:  #f4a261;
+    --box-shadow-input: 0 0 8px rgba(244, 162, 97, 0.5);
+    --bcgr-form: #ffeedb;
+}
+.darkmode{
+    --bcgr-color: linear-gradient(135deg, #0f0f17, #1c2230, #2b2d42); /* Fondo oscuro con azul/morado */
+    --bcgr-form: #232733; /* Fondo del formulario gris azulado */
+    --bcgr-input: #2b2f3b; /* Inputs con un gris más claro */
+    --text-color: #EEEEEE; /* Texto en blanco */
+    --placeholder-color: rgba(238, 238, 238, 0.5); /* Placeholder sutil */
+    --border-form: 1px solid #3A4750; /* Bordes suaves */
+    --border-input: 2px solid #3A4750; /* Bordes más definidos */
+    --border-inpfocus: #008080; /* Verde azulado elegante */
+    --box-shadow-input: 0 0 6px rgba(0, 128, 128, 0.5); /* Glow en focus */
+    --bcgr-button: linear-gradient(135deg, #222831, #393E46); /* Botón oscuro y elegante */
+    --hover: linear-gradient(135deg, #181c20, #2b2f35); /* Hover sutil, pero elegante */
+    --box-shadow-form: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
+.input-box {
+    position: relative; /* Permite posicionar el icono dentro */
+    width: 100%; /* Que ocupe el ancho completo */
+}
+
+.input-box input {
+    width: 100%;
+    box-sizing: border-box; /* Evita que el padding desborde el input */
+}
+
+.input-box img {
+    position: absolute; /* Posiciona el icono dentro del input */
+    right: 10px; /* Lo lleva a la esquina derecha */
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 6%;
+    cursor: pointer;
+}
+
+#cambio-color{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+#cambio-color img:last-child{
+    display: none;
+}
+.darkmode #cambio-color img:first-child{
+    display: none;
+}
+.darkmode #cambio-color img:last-child{
+    display: block;
 }
 html, body {
     height: 100%;
 }
+#userList {
+    background: var(--bcgr-form);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-form);
+    margin-top: 20px;
+    border: var(--border-form);
+    width: 100%;
+    max-width: 400px;
+}
+
+#userListDisplay {
+    list-style: none;
+    padding: 0;
+}
+
+#userListDisplay li {
+    background-color: var(--bcgr-form);
+    border: var(--border-form);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow-form);
+}
+
 
 .mensaje {
     opacity: 0;
@@ -17,17 +101,22 @@ html, body {
 }
 
 body {
+    margin-top: 6%;
     font-family: "Comic Sans MS", sans-serif;
     background: var(--bcgr-color);
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column; 
+    gap: 20px;
     height: 100%;
     color: var(--text-color);
 }
+input::placeholder {
+    color: var(--placeholder-color);
+}
 
 form {
-    background: #ffeedb;
+    background: var(--bcgr-form);
     padding: 2%;
     border-radius: 10px;
     box-shadow: var(--box-shadow-form);
@@ -51,13 +140,13 @@ input {
 }
 
 input:focus {
-    border-color: #f4a261;
-    box-shadow: 0 0 8px rgba(244, 162, 97, 0.5);
+    border-color: var(--border-inpfocus);
+    box-shadow: var(--box-shadow-input);
     outline: none;
 }
 
 button {
-    background: linear-gradient(135deg, #e07a5f, #c94c4c);
+    background: var(--bcgr-button);
     color: white;
     border: none;
     padding: 10px;
@@ -65,11 +154,11 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-form);
 }
 
 button:hover, input:hover {
-    background: linear-gradient(135deg, #f4a261, #e07a5f);
+    background: var(--hover);
     transform: scale(1.03);
 }
 
