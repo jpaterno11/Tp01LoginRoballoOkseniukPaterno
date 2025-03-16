@@ -1,0 +1,84 @@
+:root{
+    --bcgr-input: #fff5e1;
+    --text-color: #333;
+    --bcgr-color: linear-gradient(135deg, #ffd6a5, #ff9b85);
+    --box-shadow-form: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --border-form: 1px solid #e0a96d;
+    --border-input: 2px solid #e07a5f;
+}
+html, body {
+    height: 100%;
+}
+
+.mensaje {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    color: #555;
+}
+
+body {
+    font-family: "Comic Sans MS", sans-serif;
+    background: var(--bcgr-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--text-color);
+}
+
+form {
+    background: #ffeedb;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-form);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+    border: var(--border-form);
+}
+
+input {
+    width: 92%;
+    padding: 10px;
+    border: var(--border-input);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    background: var(--bcgr-input);
+    color: var(--text-color);
+}
+
+input:focus {
+    border-color: #f4a261;
+    box-shadow: 0 0 8px rgba(244, 162, 97, 0.5);
+    outline: none;
+}
+
+button {
+    background: linear-gradient(135deg, #e07a5f, #c94c4c);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover, input:hover {
+    background: linear-gradient(135deg, #f4a261, #e07a5f);
+    transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
