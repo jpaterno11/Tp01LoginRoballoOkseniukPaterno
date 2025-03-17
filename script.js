@@ -81,9 +81,12 @@ function guardarUsuario() {
     usuarios.push({ nombre, email });
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 }
+
 function mostrarUsuarios() {
     const userListDisplay = document.getElementById('userListDisplay');
+    userListDisplay.innerHTML = '';
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
     if (usuarios.length === 0) {
         userListDisplay.innerHTML = '<li>No hay usuarios registrados.</li>';
     } else {
@@ -96,8 +99,6 @@ function mostrarUsuarios() {
             userListDisplay.appendChild(userItem);
         });
     }
-
-    document.getElementById('userList').style.display = 'block';
 }
 
 function eliminarUsuario(index) {
@@ -107,8 +108,19 @@ function eliminarUsuario(index) {
     mostrarUsuarios();
 }
 
-document.getElementById("mostrarUsuariosBtn").addEventListener("click", mostrarUsuarios);
+function toggleUsuarios() {
+    const userList = document.getElementById('userList');
+    const boton = document.getElementById('mostrarUsuariosBtn');
 
+    if (userList.style.display === 'none') {
+        mostrarUsuarios();
+        userList.style.display = 'block';
+        boton.textContent = 'Esconder usuarios';
+    } else {
+        userList.style.display = 'none';
+        boton.textContent = 'Mostrar usuarios registrados';
+    }
+}
 let eyeicon = document.getElementById('eyeicon')
 let eyeicon1 = document.getElementById('eyeicon1')
 let password = document.getElementById('Contraseña')
